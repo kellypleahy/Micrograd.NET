@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+_[Rr]e[Ss]harper.[Cc]aches
+*.orig
+.vscode*
+*project.lock.json
+*.xproj.user
+*.lock.json
+npm-debug.log
+npm-debug.log*
+.idea
+*.swp
+.*
+!.gitignore
