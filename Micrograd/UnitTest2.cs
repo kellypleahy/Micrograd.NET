@@ -36,25 +36,25 @@ public class UnitTest2(ITestOutputHelper outputHelper)
             return (totalLoss, accuracy.Count(x => x) / (1.0 * accuracy.Length));
         }
 
-        var (l, a) = Loss();
-        outputHelper.WriteLine($"{l} {a}");
+        var (loss, acc) = Loss();
+        outputHelper.WriteLine($"{loss} {acc}");
 
         // optimization
         for (var k = 0; k < 100; k++)
         {
-            (l, a) = Loss();
+            (loss, acc) = Loss();
             model.ZeroGradient();
-            l.Backward();
+            loss.Backward();
 
             var learningRate = 1.0 - 0.9 * k / 100.0;
             foreach (var p in model.Parameters)
                 p.Update(learningRate);
 
-            outputHelper.WriteLine($"step {k} loss {l.Data}, accuracy {a*100:0.00}%");
+            outputHelper.WriteLine($"step {k} loss {loss.Data}, accuracy {acc*100:0.00}%");
         }
 
-        l.Data.Should().BeApproximately(0.02, 0.02);
-        a.Should().BeApproximately(1.0, 0.02);
+        loss.Data.Should().BeApproximately(0.02, 0.02);
+        acc.Should().BeApproximately(1.0, 0.02);
     }
 
     private static Value[][] LoadCsv(string name, int columns)
