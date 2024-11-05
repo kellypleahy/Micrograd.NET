@@ -1,6 +1,6 @@
 # Micrograd.NET
 
-A .NET idiomatic implementation of Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd)
+A .NET idiomatic implementation of Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd)  (see video here: [video](https://www.youtube.com/watch?v=VMj-3S1tku0))
 
 ## Example:
 
